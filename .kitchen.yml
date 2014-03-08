@@ -1,0 +1,16 @@
+---
+driver:
+  name: digitalocean
+  region: Amsterdam 1
+
+provisioner:
+  name: shell
+
+platforms:
+  - name: ubuntu-13.10
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    provisioner:
+      script: scripts/bootstrap.sh
