@@ -13,12 +13,9 @@ build:
     - script:
         name: vagrant version
         code: vagrant -v | tee $WERCKER_REPORT_MESSAGE_FILE
-    - script:
-        name: create ssh directory
-        code: mkdir ~/.ssh
     - create-file:
         name: write key
-        filename: ~/.ssh/id_rsa
+        filename: /home/ubuntu/.ssh/id_rsa
         content: $WERKER_DO_KEY_PRIVATE
         overwrite: true
         hide-from-log: true
