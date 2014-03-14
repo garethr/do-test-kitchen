@@ -21,4 +21,4 @@ build:
         hide-from-log: true
     - script:
         name: run test kitchen
-        code: bundle exec kitchen test
+        code: bundle exec kitchen test -c
