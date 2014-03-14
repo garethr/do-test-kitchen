@@ -4,6 +4,11 @@ with the shell provisioner.
 This sort of setup is ideal for running on a continuous integration
 system.
 
+[![wercker
+status](https://app.wercker.com/status/7d06dbda62f83ed243556ea971695632/s/
+"wercker
+status")](https://app.wercker.com/project/bykey/7d06dbda62f83ed243556ea971695632)
+
 ## Installation
 
 With install the dependencies:
