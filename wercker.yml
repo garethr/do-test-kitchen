@@ -3,13 +3,22 @@ build:
   steps:
     - bundle-install
     - script:
+        name: kitchen version
+        code: bundle exec kitchen version | tee $WERCKER_REPORT_MESSAGE_FILE
+    - script:
         name: install vagrant
         code: |
             wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
             sudo dpkg -i vagrant_1.5.1_x86_64.deb
     - script:
-        name: kitchen version
-        code: bundle exec kitchen version | tee $WERCKER_REPORT_MESSAGE_FILE
+        name: vagrant version
+        code: vagrant -v | tee $WERCKER_REPORT_MESSAGE_FILE
+    - create-file:
+        name: write key
+        filename: ~/.ssh/id_rsa
+        content: $WERKER_DO_KEY_PRIVATE
+        overwrite: true
+        hide-from-log: true
     - script:
         name: run test kitchen
         code: bundle exec kitchen test
