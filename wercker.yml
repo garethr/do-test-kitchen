@@ -1,0 +1,15 @@
+box: wercker/rvm
+build:
+  steps:
+    - bundle-install
+    - script:
+        name: install vagrant
+        code: |
+            wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.5.1_x86_64.deb
+            dpkg -i vagrant_1.5.1_x86_64.deb
+    - script:
+        name: kitchen version
+        code: bundle exec kitchen version | tee $WERCKER_REPORT_MESSAGE_FILE
+    - script:
+        name: run test kitchen
+        code: bundle exec kitchen test
