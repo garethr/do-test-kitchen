@@ -22,3 +22,7 @@ build:
     - script:
         name: run test kitchen
         code: bundle exec kitchen test -c
+  after-steps:
+    - script:
+        name: terminate any test kitchen instances still running
+        code: bundle exec kitchen destroy all
